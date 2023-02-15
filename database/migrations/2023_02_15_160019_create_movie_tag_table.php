@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('genre', function (Blueprint $table) {
+        Schema::create('movie_tag', function (Blueprint $table) {
             $table->id();
-
-            $table->string('name', 32);
-            $table->text('description');
-
-            $table->timestamps();
+            // $table->unsignedBigInteger('movie_id');
+            // $table->foreign('movie_id')->references('id')->on('movies');
+            
+            // $table->unsignedBigInteger('tag_id');
+            // $table->foreign('tag_id')->references('id')->on('tags');
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('genre');
+        Schema::dropIfExists('movie_tag');
     }
 };

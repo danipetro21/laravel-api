@@ -11,7 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::table('genres', function (Blueprint $table) {
+
+            $table->foreignId('movies_id')
+                ->constrained();
+        });
+
+        Schema::table('movie_tag', function (Blueprint $table) {
+
+            $table->foreignId('movies_id')
+                ->constrained();
+            $table->foreignId('tags_id')
+                ->constrained();
+        });
     }
 
     /**
@@ -19,6 +31,14 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('genres', function (Blueprint $table) {
+
+            $table -> dropForeign('genres_movies_id_foreign');
+        });
+        Schema::table('movie_tag', function (Blueprint $table) {
+
+            $table -> dropForeign('movie_tag_movies_id_foreign');
+            $table -> dropForeign('movie_tag_tags_id_foreign');
+        });
     }
 };
