@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('tag', function (Blueprint $table) {
             $table->id();
+
+            $table->string('name', 32);
+            $table->text('description');
+
             $table->timestamps();
         });
     }
