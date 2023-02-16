@@ -18,7 +18,7 @@ class Movie extends Model
 
     ];
 
-    public function genres(){
+    public function genre(){
         return $this -> belongsTo(Genre :: class);
     }
 
