@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('genres', function (Blueprint $table) {
+        Schema::table('movies', function (Blueprint $table) {
 
-            $table->foreignId('movies_id')
+            $table->foreignId('genre_id')
                 ->constrained();
         });
 
@@ -31,9 +31,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('genres', function (Blueprint $table) {
+        Schema::table('movies', function (Blueprint $table) {
 
-            $table -> dropForeign('genres_movies_id_foreign');
+            $table -> dropForeign('movies_genre_id_foreign');
         });
         Schema::table('movie_tag', function (Blueprint $table) {
 
