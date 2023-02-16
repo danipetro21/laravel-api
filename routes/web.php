@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+use App\Http\Controllers\ApiController;
+
+Route :: get('/api/v1/movie/all', [ApiController :: class, 'movieAll']);
